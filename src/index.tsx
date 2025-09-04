@@ -310,7 +310,7 @@ app.get('/', (c) => {
                         </div>
                     </div>
                     
-                    <div class="dark-card p-4">
+                    <div class="dark-card p-4 mb-4">
                         <h3 class="font-semibold mb-3">🏆 Thành tích</h3>
                         <div class="grid grid-cols-4 gap-3">
                             <div class="text-center">
@@ -339,6 +339,11 @@ app.get('/', (c) => {
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Continue Learning Button -->
+                    <button onclick="showPage('chat')" class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-4 rounded-xl font-semibold text-lg mb-2">
+                        🚀 Tiếp tục học bài
+                    </button>
                 </div>
             </div>
 
@@ -453,6 +458,18 @@ app.get('/', (c) => {
             <!-- Settings Page -->
             <div id="settings-page" class="page">
                 <div class="p-6">
+                    <!-- Start Learning CTA -->
+                    <div onclick="showPage('chat')" class="bg-gradient-to-r from-green-500 to-blue-500 p-4 rounded-xl mb-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-play-circle text-white text-2xl mr-3"></i>
+                            <div class="flex-1">
+                                <div class="font-semibold text-white">Bắt đầu học ngay!</div>
+                                <div class="text-green-100 text-sm">Luyện tiếng Anh với AI ChattyVN</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-white"></i>
+                        </div>
+                    </div>
+                    
                     <!-- Premium CTA -->
                     <div onclick="showSubscription()" class="premium-gradient p-4 rounded-xl mb-6 cursor-pointer">
                         <div class="flex items-center">
@@ -624,31 +641,31 @@ app.get('/', (c) => {
                             <div class="border border-gray-600 rounded-lg p-4">
                                 <div class="flex justify-between items-center">
                                     <div>
-                                        <div class="font-semibold">Unlimited</div>
-                                        <div class="text-sm text-gray-400">Monthly subscription</div>
+                                        <div class="font-semibold">ChattyVN Pro</div>
+                                        <div class="text-sm text-gray-400">Gói tháng</div>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-gray-400 line-through text-sm">$19.98</div>
-                                        <div class="text-blue-400 font-bold">$9.99</div>
-                                        <div class="text-xs text-gray-400">per month</div>
+                                        <div class="text-gray-400 line-through text-sm">299.000đ</div>
+                                        <div class="text-blue-400 font-bold">149.000đ</div>
+                                        <div class="text-xs text-gray-400">mỗi tháng</div>
                                     </div>
                                     <div class="bg-red-500 text-white text-xs px-2 py-1 rounded">-50%</div>
                                 </div>
                             </div>
                             
                             <div class="border-2 border-blue-500 rounded-lg p-4 relative">
-                                <div class="absolute -top-3 left-4 bg-blue-500 text-white text-xs px-2 py-1 rounded">Recommended</div>
+                                <div class="absolute -top-3 left-4 bg-blue-500 text-white text-xs px-2 py-1 rounded">Khuyến nghị</div>
                                 <div class="flex justify-between items-center">
                                     <div>
-                                        <div class="font-semibold">Unlimited</div>
-                                        <div class="text-sm text-gray-400">Annual subscription</div>
+                                        <div class="font-semibold">ChattyVN Pro</div>
+                                        <div class="text-sm text-gray-400">Gói năm</div>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-gray-400 line-through text-sm">$249.95</div>
-                                        <div class="text-blue-400 font-bold">$49.99</div>
-                                        <div class="text-xs text-gray-400">per year</div>
+                                        <div class="text-gray-400 line-through text-sm">1.990.000đ</div>
+                                        <div class="text-blue-400 font-bold">999.000đ</div>
+                                        <div class="text-xs text-gray-400">mỗi năm</div>
                                     </div>
-                                    <div class="bg-red-500 text-white text-xs px-2 py-1 rounded">-80%</div>
+                                    <div class="bg-red-500 text-white text-xs px-2 py-1 rounded">-50%</div>
                                 </div>
                             </div>
                         </div>
@@ -667,6 +684,10 @@ app.get('/', (c) => {
             <!-- Bottom Navigation -->
             <div class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bottom-nav">
                 <div class="flex">
+                    <button onclick="showPage('chat')" class="flex-1 py-3 text-center nav-item" id="nav-chat">
+                        <i class="fas fa-comments text-xl mb-1 block"></i>
+                        <span class="text-xs">Học</span>
+                    </button>
                     <button onclick="showPage('profile')" class="flex-1 py-3 text-center nav-item" id="nav-profile">
                         <i class="fas fa-user text-xl mb-1 block"></i>
                         <span class="text-xs">Profile</span>
@@ -1103,8 +1124,8 @@ app.get('/', (c) => {
 
             // Initialize lesson on page load
             window.addEventListener('load', () => {
-                // Start with settings page visible (matching Chatty behavior)
-                showPage('settings');
+                // Start with chat page visible so users can immediately start learning
+                showPage('chat');
             });
 
             // Play audio function
