@@ -17,7 +17,8 @@
     "logs": "pm2 logs chatty-vn --nostream"
   },
   "dependencies": {
-    "hono": "^4.9.6"
+    "hono": "^4.9.6",
+    "openai": "^5.19.1"
   },
   "devDependencies": {
     "@hono/vite-build": "^1.2.0",
